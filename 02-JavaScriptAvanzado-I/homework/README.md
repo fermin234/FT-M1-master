@@ -7,6 +7,7 @@ Determiná que será impreso en la consola, sin ejecutar el código.
 
 > Investiga cuál es la diferencia entre declarar una variable con `var` y directamente asignarle un valor.
 
+
 ```javascript
 x = 1;
 var a = 5;
@@ -122,7 +123,7 @@ console.log(pm);
 "4" - 2  // 2
 "4px" - 2 // NaN
 7 / 0 // infinito
-{}[0] // [0]
+{}[0] // [0] ****************
 parseInt("09") // 9
 5 && 2   // 2
 2 && 5   // 5
@@ -152,8 +153,9 @@ function test() {
 }
 
 test();
-undefined
-2
+
+// undefined
+// 2
 
 ```
 
@@ -197,7 +199,7 @@ console.log(obj.prop.getFullname()); //'Aurelio De Rosa'
 
 var test = obj.prop.getFullname;
 
-console.log(test()); //'Juan Perez'
+console.log(test()); //undefined
 ```
 
 ### Event loop
