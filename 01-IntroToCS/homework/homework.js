@@ -13,6 +13,8 @@ function BinarioADecimal(num) {
     exp --;
   }
   return res;
+
+  // ********************************************************************************************************
 }
 
 function DecimalABinario(num) {
@@ -20,10 +22,12 @@ function DecimalABinario(num) {
   let res = [];
   while(num > 0){
     res.unshift(num % 2);
-    num = parseInt(num / 2);
+    num = Math.floor(num / 2);
   }
 
   return res.join("");
+
+   // ********************************************************************************************************
 }
 
 
