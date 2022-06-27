@@ -1,5 +1,7 @@
 'use strict'
 
+// const { arrayReplaceAt } = require("markdown-it/lib/common/utils");
+
 /*
 Definir las funciones recursivas nFactorial y nFibonacci.
 
@@ -15,10 +17,34 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if(n === 1 || n === 0) return 1;
+  return n * nFactorial(n - 1);
+}
+/* 
+3! = 3 * 2 * 1 = 6
+
+nFactorial(1) --> 1 
+nFactorial(2) --> 2 * nFactorial(1)
+nFactorial(3) --> 3 * nFactorial(2)
+global
+*/
+//                  3      
+function nFibonacci(n) {
+  if(n < 2) return n;
+  return nFibonacci(n - 1) + nFibonacci(n-2);
 }
 
-function nFibonacci(n) {
-}
+/*
+n = 2 --> 0, 1, 1, 2, 3, 5, 8, 13. --> 1
+          0  1  2  3  4  5  6   7
+nFibonacci(0) --> 0
+nFibonacci(1) --> 1
+nFibonacci(2) --> nFibonacci(1) + nFibonacci(0)
+nFibonacci(3) --> nFibonacci(2) + nFibonacci(1)
+global
+*/
+
+
 
 /*
 Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde el primer elemento que ingresa es el primero que se quita. Definir los siguientes métodos:
@@ -29,9 +55,42 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {
+// class Queue {
 
+//   constructor(){
+//       this.array = [];
+//   }
+  
+//   enqueue(item){
+//     this.array.push(item);
+//   }
+  
+//   dequeue(){
+//     return this.array.shift();
+//   }
+
+//   size(){
+//     return this.array.length
+//   }
+//   }
+
+function Queue(){
+  this.array = [];
 }
+
+Queue.prototype.enqueue = function(elemento){
+  this.array.push(elemento);
+}
+
+Queue.prototype.dequeue = function(){
+  return this.array.shift();
+}
+
+Queue.prototype.size = function(){
+  return this.array.length;
+}
+
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
