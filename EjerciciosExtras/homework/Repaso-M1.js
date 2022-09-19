@@ -15,7 +15,18 @@ const {
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 var countArray = function(array) {
     // Tu código aca:
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        if(Array.isArray(array[i])){
+            sum +=countArray(array[i]);
+        }else{
+            sum+=array[i];
+        }
+    }
+    return sum;
+    }
     /*
+    let contador = 0;
     function contadorF(array){
         let i = 0;
         while(i < array.length){
@@ -25,17 +36,16 @@ var countArray = function(array) {
         }
         return contador;
     }
-    */
-    let contador = 0;
-    let i = 0;
-    array = array.flat(10000);
-    while(i < array.length){
-        contador += array[i];
-        i++
-    }
-    return contador;
-    // return contadorF(array);
-}
+   return contadorF(array);
+   */
+    // let i = 0;
+    // array = array.flat(10000);
+    // while(i < array.length){
+    //     contador += array[i];
+    //     i++
+    // }
+    // return contador;
+
 
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
@@ -58,17 +68,15 @@ var countArray = function(array) {
 var countProps = function(obj) {
     // Tu código aca:
     let contador1 = 0;
-    function a(obj){
-        if(typeof obj === 'object' && !Array.isArray(obj)){
-            for(let key in obj){
-                contador1++;
-                if(typeof obj[key] === 'object') a(obj[key]);
-            }
+    if(typeof obj === 'object' && !Array.isArray(obj)){
+        for(let key in obj){
+            contador1++;
+            if(typeof obj[key] === 'object') contador1+= countProps(obj[key]);
         }
-        return contador1;
     }
-    return a(obj);
+    return contador1;
 }
+
 
 
 // Implementar el método changeNotNumbers dentro del prototype de LinkedList que deberá cambiar
